@@ -57,26 +57,20 @@
                         </div>
                     </div>
                     <!-- Contact cards-->
-                    <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-                        <div class="col">
-                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-chat-dots"></i></div>
-                            <div class="h5 mb-2">Chat with us</div>
-                            <p class="text-muted mb-0">Chat live with one of our support specialists.</p>
-                        </div>
-                        <div class="col">
-                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-people"></i></div>
-                            <div class="h5">Ask the community</div>
-                            <p class="text-muted mb-0">Explore our community forums and communicate with other users.</p>
-                        </div>
-                        <div class="col">
-                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-question-circle"></i></div>
-                            <div class="h5">Support center</div>
-                            <p class="text-muted mb-0">Browse FAQ's and support articles to find solutions.</p>
-                        </div>
-                        <div class="col">
-                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone"></i></div>
-                            <div class="h5">Call us</div>
-                            <p class="text-muted mb-0">Call us during normal business hours at (555) 892-9403.</p>
+                </div>
+            </section>
+            <section class="py-5 bg-light" id="scroll-target">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder" >Respuesta</h2>
+                            <p class="lead fw-normal text-muted mb-0" id="json_recibido">
+                                
+                            </p>
+                            <h2 class="fw-bolder">Recomendacion</h2>
+                            <p class="lead fw-normal text-muted mb-0">Padecer una enfermedad de tal magnitud, debe ser tormento suficiente, para que además, un ensayo clínico, empeore la situación y haga perder toda posible esperanza, nos parece que es
+                                una situación sumamente complicada y no queríamos que siguiera ocurriendo, por eso nació Safety-analytics, para ser un brazo de apoyo, sobre el cual confiar decisiones complicadas en momentos complicados.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -127,6 +121,8 @@
                     return response.text();
                 }).then (function (text){
                     console.log(text)
+                    const obj = JSON.parse(text);
+                    document.getElementById("json_recibido").innerHTML = ' la Respuesta es: '+ obj["Respuesta"]
                 })
             })
         </script>
