@@ -11308,3 +11308,10 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+
+#perfil {
+  float: left;
+  width:  300px;
+  height: 300px;
+  object-fit: cover;
+}
