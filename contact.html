@@ -36,21 +36,14 @@
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                            <h1 class="fw-bolder">Get in touch</h1>
-                            <p class="lead fw-normal text-muted mb-0">We'd love to hear from you</p>
+                            <h1 class="fw-bolder">Prueba el Modelo!</h1>
+                            <p class="lead fw-normal text-muted mb-0">Nunca está demás ser precavido</p>
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
                                 <form id="contactForm">
-                                    <label for="temp"> Temperatura</label>
-                                    <input type="number" name="temperature" id="temp" placeholder="temp">
-
-                                    <label for="humedad"> Humedad</label>
-                                    <input type="number" name="humidity" id="humedad" placeholder="humedad">
-
-                                    <label for="phid"> ph</label>
-                                    <input type="number" name="ph" id="phid" placeholder="ph">
-
+                                    <label for="temp"> Estudio y condición</label>
+                                    <input type="text" name="Limpiostudycondition" id="temp" placeholder="estudio_condicion">
                                     <button type="submit" id="botoncito">submit</button>
                                 </form>
                             </div>
@@ -62,14 +55,16 @@
             <section class="py-5 bg-light" id="scroll-target">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6">
-                            <h2 class="fw-bolder" >Respuesta</h2>
+                        <div class="col-lg-6" id="centrardiv">
+                            <h2 class="fw-bolder" id="final">Respuesta</h2>
                             <p class="lead fw-normal text-muted mb-0" id="json_recibido">
                                 
                             </p>
-                            <h2 class="fw-bolder">Recomendacion</h2>
-                            <p class="lead fw-normal text-muted mb-0">Padecer una enfermedad de tal magnitud, debe ser tormento suficiente, para que además, un ensayo clínico, empeore la situación y haga perder toda posible esperanza, nos parece que es
-                                una situación sumamente complicada y no queríamos que siguiera ocurriendo, por eso nació Safety-analytics, para ser un brazo de apoyo, sobre el cual confiar decisiones complicadas en momentos complicados.
+                            <h2 class="fw-bolder" id="final">Recomendacion</h2>
+                            <p class="lead fw-normal text-muted mb-0"id="final"> previamente se puede ver el resultado del análisis de los datos previstos, en este caso si se optiene un 0, Safety-analytics no recomienda
+                                seguir con el tratamiento de los ensayos clínicos, ya que estos pueden presentar a futuro, aún más problemas a los que pueda ya tener el paciente,
+                                sin embargo si se optiene una respuesta de 1, sí se recomienda presentarse a un ensayo clínicos, puede llegar a ser una solución muy viable ofrecer un acercamiento diferente,
+                                llegando incluso a salvar la vida del paciente!!
                             </p>
                         </div>
                     </div>
@@ -103,10 +98,10 @@
 
                 const formData=new FormData(myForm);
                 let object = {};
-                formData.forEach((value, key) => object[key] = parseInt(value));
+                formData.forEach((value, key) => object[key] =value);
                 let json = JSON.stringify(object);
                 console.log(json)
-                fetch("https://apiagrow.herokuapp.com/Data/predict",{
+                fetch("https://app-apibi.herokuapp.com/Data/predict",{
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -117,7 +112,7 @@
                 }).then (function (text){
                     console.log(text)
                     const obj = JSON.parse(text);
-                    document.getElementById("json_recibido").innerHTML = ' la Respuesta es: '+ obj["Respuesta"]
+                    document.getElementById("json_recibido").innerHTML = ' la Respuesta es: '+ obj["Resultado"]
                 })
             })
         </script>

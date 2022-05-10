@@ -11316,8 +11316,9 @@ html {
   object-fit: cover;
 }
 
-input[type=number], select {
-  width: 100%;
+input[type=text], select {
+  width: 500px;
+  height: 100px;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -11337,4 +11338,15 @@ input[type=number], select {
 }
 #botoncito:hover {
   background-color: blue;
+}
+#final {
+  text-align: center;
+}
+#json_recibido {
+  text-align: center;
+}
+#centrardiv {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
 }
